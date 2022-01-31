@@ -1,0 +1,14 @@
+{% extends 'post/base.html' %}
+{% block content %}
+<h3>This is Your Dashboard</h3>
+{% for post in data %}
+<div>
+    <h3>{{post.name}}</h3>
+</div>
+<div>
+    <p>{{post.comment}}</p>
+</div>
+{% endfor %}
+<a href="{% url 'signout' %}"><button type="submit">Signout</button></a>
+<a href="{% url 'post' %}"><button type="submit">Post</button></a>
+{% endblock content %}

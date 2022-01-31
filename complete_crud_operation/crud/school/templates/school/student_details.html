@@ -1,0 +1,38 @@
+{% extends 'school/base.html' %}
+{% block content %}
+
+{% if stud %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>ROLL</th>
+            <th>SCHOOL</th>
+            <th>ADDRESS</th>
+            <th>ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+
+        {% for st in stud %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{st.name}}</td>
+            <td>{{st.roll}}</td>
+            <td>{{st.school}}</td>
+            <td>{{st.address}}</td>
+            <td><a href="{% url 'update' st.id %}"><button>Update</button></a></td>
+            <td><a href="{% url 'delete' st.id %}"><button>Delete</button></a></td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h4>Student has no data</h4>
+{% endif %}
+<a href="{% url 'create' %}">Create</a>
+<a href="{% url 'logout' %}">Logout</a>
+{% endblock content %}

@@ -1,0 +1,9 @@
+{% extends 'school/base.html' %}
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>Submit</button>
+</form>
+<a href="{% url 'details' %}"><button>Details</button></a>
+{% endblock content %}

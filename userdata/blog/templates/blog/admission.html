@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<form action="{% url 'admission' %}" method="post">
+    {% csrf_token %}
+<input type="text" name="name" placeholder="name">
+<input type="text" name="roll" placeholder="roll">
+<input type="text" name="address" placeholder="address">
+
+<button type="submit">Admission</button>
+
+</form>
+{% endblock content %}

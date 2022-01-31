@@ -1,0 +1,13 @@
+{% extends 'post/base.html' %}
+
+{% block content %}
+<h3>This is Your Post page</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    Name: <input type="text" name="name">
+  <input type="submit"><br>
+  <br>
+<textarea rows="4" cols="50" name="comment">
+Enter Your comment here...</textarea>
+</form>
+{% endblock content %}

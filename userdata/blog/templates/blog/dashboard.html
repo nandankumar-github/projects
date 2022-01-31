@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<h3>This is My Dashboard Page</h3>
+<h1>{{request.user}}</h1>
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+<div>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'admission' %}">To Get Admission</a>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Address</th>
+        </tr>
+        <tbody>
+            {% for student in data %}
+            <tr>
+                <td>{{student.name}}</td>
+                <td>{{student.roll}}</td>   
+                <td>{{student.address}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </thead>
+</table>
+{% endblock content %}
